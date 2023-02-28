@@ -1,18 +1,14 @@
 # IceExtendedFunctor
-> an 'IceImageReconFunctors' class to be used as a parent class
-
-![CEA_logo](https://mauconduit.fr/pagesWeb/Digital-CEA-logo-quadri-fond-rouge-148-120.png)
 
 ## Short description
 This functor is a helper class that brings functionalities to save and retrieve images for post-processing in the ICE environment. It must be used as a parent class (inheritance).
 
-## Content description
+## Folder content
 
 - The [ExtendedFunctor](./ExtendedFunctor) folder contains the .cpp/.h file to be copied in your ICE project
 
 - The [TEMPLATE_ice_with_ExtendedFunctor](./TEMPLATE_ice_with_ExtendedFunctor) folder contains a basic functor example using the 'ExtendedFunctor' class
 
-- other test (./TEMPLATE_ice_with_ExtendedFunctor) folder
 
 ## More details
 
