@@ -1,0 +1,114 @@
+########################################################################
+# Attention:           THIS FILE MUST BE IN UNIX Format
+#                      use dos2unix after editing 
+#                      (also done automatic by caller MakeIcePrg.bash)
+#
+# Example Makefile for IceTEMPL4TE
+#
+# Makefile for icePrograms(d).dll icePrograms.evp libicePrograms.so
+#
+# This Makefile works only with:
+#    - gnu make.exe and unix sh.exe    ( use: idea_make --unix -f Makefile.imk)
+#    - cygwin tools     ( with $SHELLHOME defined)
+#    - MSVStudio6 tools ( with $MSDEVDIR  defined)
+#
+#
+# example calls:
+# idea_make --unix -f Makefile.imk clean all
+# 
+# please use the multi_idea shortcut "mi" ( it will prepare the crosscompiler mount )
+# mi clean             cleans all derived objects
+# mi                   default for "mi all"
+# mi all               combines "dll evp dlld evpd so"
+# mi dll               only compiles windows release .dll
+# mi dlld              only compiles windows debug d.dll
+# mi evp               only prepares release .evp   ( "evp" depends on "dll": souces will also be compiled)
+# mi evpd              only prepares debug   d.evp  ( "evpd" depends on "dlld": souces will also be compiled)
+# mi so                only crosscompiles linux .so 
+# mi sod               is usually not tested,needed
+# mi install           will install everything ( copy into approp. directories)
+# mi install_win       only installs windows release targets
+# mi install_wind
+# mi install_xlinux
+# and e.g.:
+# mi libIceTEMPL4TE.so    also works
+########################################################################
+
+
+all :: dll evp dlld evpd so
+
+
+#************************************************************************
+# Target naming
+#************************************************************************
+TARGET = IceTEMPL4TE
+
+# another nice alternative
+# TARGET := $(shell basename `pwd`)
+
+
+#************************************************************************
+# add myself to dependency list (if we make changes here, recompile)
+#************************************************************************
+MAKEFILE_CHAIN += Makefile.imk
+
+
+
+#************************************************************************
+# Sources and destinations
+#************************************************************************
+## we can also use the following statement
+## SOURCES := $(wildcard *.cpp)
+##  another valid notation is
+## SOURCES += ../xyz.cpp
+
+SOURCES     = TEMPL4TE_ObjectMap.cpp
+SOURCES    += TEMPL4TE_Configurator.cpp
+SOURCES    += Functor_TEMPL4TE_PostProcessing.cpp
+SOURCES    += XFunctor.cpp
+SOURCE_PATH = $(IDEA_BASE)/n4/pkg/MrServers/MrVista/Ice/IceIdeaFunctors/TEMPL4TE
+
+
+
+#************************************************************************
+# Target specific CPPFLAGS
+#************************************************************************
+CPPFLAGS_LOCAL  += -DICEIDEAFUNCTORS_EXPORTS
+CPPFLAGS_LOCAL  += -DBUILD_$(TARGET)
+CPPFLAGS_LOCAL  += -DICE_NAMESPACE=$(TARGET)
+CPPFLAGS_LOCAL  += -D_VX_VERSION_VB
+
+# Target specific include path e.g.
+# INCLPATHS_LOCAL  += -I$(IDEA_BASE)/n4/pkg/ -I$(IDEA_BASE)/something
+# CCCFLAGS_LOCAL += --help
+# CPPFLAGS-IceTEMPL4TE += --blubber
+
+#************************************************************************
+# Libs
+#************************************************************************
+
+# LDLIBS
+# This libs are link for X86 and XLINUX
+LDLIBS += IceAlgos
+LDLIBS += IceBasic
+LDLIBS += IceUtils
+LDLIBS += MrParc
+
+
+# LDLIBS_WIN_aa
+# This libs are only linked for X86
+LDLIBS_WIN_aa += MrClassDump
+
+
+# LDLIBS_XLINUX 
+# This libs are only linked for XLINUX
+LDLIBS_XLINUX += stlport
+LDLIBS_XLINUX += ace
+
+                          
+
+#************************************************************************
+# INCLUDE General gnumake rules for ice programs
+#************************************************************************
+
+include $(IDEA_BASE)/n4/pkg/MrApplications/MrIDEA/utils/MakeIce.mk
