@@ -22,18 +22,18 @@ Methods to save/retrieve data in PARC or PDS (Parc data store) and to send data 
 
 
 The class 'sendPars' is used in conjunction with sendData2NextFunctor() method. It will basically send the IceAs data to next functor. Several parameters can be easily set using the following methods of sendPars class:
-- change the ICE format type                    setIceFormat(...)
-- add a comment in Miniheader (DICOM comment)   setComment(...)
-- change the lookup table                       setLUTFile(...)
-- scale the data before sending                 setScale(...)
-- change dicom type to module or phase          setDicomImaType(...)
-- append a string to the series name            setSuffix(...)
+- setIceFormat(...): change the ICE format type                    
+- setComment(...): add a comment in Miniheader (DICOM comment)   
+- setLUTFile(...): change the lookup table                       
+- setScale(...): scale the data before sending                 
+- setDicomImaType(...): change dicom type to module or phase          
+- setSuffix(...): append a string to the series name            
 
 
 The class 'storePars' is used in conjunction with storeImageInPARC() / retrieveImageFromPARC(). It can save/retrieve IceAs objects as well as Miniheader objects. The 'storePars' class helps to configure the save/retrieve actions using the following methods:
-- use a prefix to build the "key"           setPrefix(...)
-- change the data type before saving        setIceFormat(...)
-- extract mod or phase from complex data    setExtractMode(...)
-- save data in PARC (m_env->Add())          saveInPARC(...)
-- save data in PDS (m_pPDS->Add())          saveInPDS(...)
-- set the lifetime for sharing between scans for instance setLifeTime(...)
+- setPrefix(...): use a prefix to build the "key"           
+- setIceFormat(...): change the data type before saving        
+- setExtractMode(...): extract mod or phase from complex data    
+- saveInPARC(...): save data in PARC (m_env->Add())          
+- saveInPDS(...): save data in PDS (m_pPDS->Add())          
+- setLifeTime(...): set the lifetime for sharing between scans for instance 
