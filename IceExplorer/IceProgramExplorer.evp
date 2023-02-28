@@ -1,0 +1,258 @@
+<XProtocol>
+{
+    <ID> 1000000
+
+    <ParamMap."">
+    {
+        <ParamMap."EXPLORER">
+        {
+            <ParamMap."SCAN_FUNCTOR">
+            {
+                <ParamBool."Activate">
+                {
+                    <Comment> ""
+                    <LimitRange> { "false" "true" }
+                    "false"
+                }            
+                <ParamString."LinkedFunctor">
+                {
+                    <Comment> ""
+                    "Flags" 
+                }
+                <ParamBool."Successor">
+                {
+                    <Comment> ""
+                    <LimitRange> { "false" "true" }
+                    "true"
+                }
+                // <ParamMap."PARAMS">
+                // {
+                    // <ParamBool."dump">
+                    // {
+                        // <Comment> ""
+                        // <LimitRange> { "false" "true" }
+                        // "false"
+                    // }
+                // }
+            }
+            
+            <ParamMap."IMAGE_FUNCTOR">
+            {
+                <ParamBool."Activate">
+                {
+                    <Comment> ""
+                    <LimitRange> { "false" "true" }
+                    "true"
+                }
+                <ParamString."LinkedFunctor">
+                {
+                    <Comment> ""
+                    "imafinish" 
+                }
+                <ParamBool."Successor">
+                {
+                    <Comment> ""
+                    <LimitRange> { "false" "true" }
+                    "false"
+                }
+                <ParamString."PredecessorMethod">
+                {
+                    <Comment> "If empty, will use standard ImageReady"
+                    "" 
+                }
+                <ParamString."SuccessorEvent">
+                {
+                    <Comment> "If empty, will use standard ComputeImage"
+                    "" 
+                }
+            }
+            
+            <ParamBool."StopChain"> 
+            {
+                <Comment> "Do not pass on data to next functor, so chain reconstruction will be stopped after this functor"
+                <LimitRange> { "false" "true" }
+                "false" 
+            }
+      
+            <ParamBool."CheckAndDisplay"> 
+            {
+                <Comment> ""
+                <LimitRange> { "false" "true" }
+                "true" 
+            }
+      
+            <ParamDouble."VisuScaleFactor"> 
+            {
+                <Comment> "Scaling for data to be visualized with CheckAndDisplay. DO not modify scaling to forwarded data to net functor."
+                1.0
+            }
+            
+            <ParamBool."DumpCurrentLoopIndex"> 
+            {
+                <Comment> "Dump current loop index"
+                <LimitRange> { "false" "true" }
+                "true" 
+            }
+
+            <ParamBool."SingleThreading">
+            {
+                <Comment> "Choose whether the Pipe Service must be single threaded or as originally set (might be multi threaded or not). False = Original ; True = Single Threaded."
+                <LimitRange> { "false" "true" }
+                "true"
+            }
+
+            <ParamBool."DumpIceAs"> 
+            {
+                <Comment> "Dump Ice Access Specifier information"
+                <LimitRange> { "false" "true" }
+                "false" 
+            }
+            
+            <ParamBool."DumpIceObj"> 
+            {
+                <Comment> "Dump Ice Object "
+                <LimitRange> { "false" "true" }
+                "false" 
+            }
+            
+            <ParamBool."DumpMiniHeader"> 
+            {
+                <Comment> "Dump MiniHeader content in Image Functor or dump Mdh in Scan Functor"
+                <LimitRange> { "false" "true" }
+                "false"
+            }
+
+            <ParamBool."DumpImageControl"> 
+            {
+                <Comment> "Dump ImageControl/ScanControl information"
+                <LimitRange> { "false" "true" }
+                "false"
+            }
+
+            <ParamBool."DumpParcENV">
+            {
+                <Comment> "Dump Parc environment content"
+                <LimitRange> { "false" "true" }
+            }
+
+            <ParamBool."DumpParcPDS">
+            {
+                <Comment> "Dump PDS environment content"
+                <LimitRange> { "false" "true" }
+            }
+
+            <ParamString."RemoveFunctor_1">
+            {
+                <Comment> "Name of a functor to be removed from pipe. Keep empty if not needed."
+                ""
+            }
+
+            <ParamString."RemoveFunctor_2">
+            {
+                <Comment> "Name of a functor to be removed from pipe. Keep empty if not needed."
+                "" 
+            }
+
+            <ParamBool."ExtractMAG_FloatOuput">
+            {
+                <Comment> "Choose whether ExtractMAG functor does or does not convert incoming float images to short images."
+                <LimitRange> { "false" "true" }
+                "false"
+            }         
+            
+            <ParamBool."Imafinish_FloatOuput">
+            {
+                <Comment> "Choose whether Imafinish functor does or does not convert incoming float images to short images."
+                <LimitRange> { "false" "true" }
+                "false"
+            }
+            
+            <ParamDouble."ccol"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."ccha"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."clin"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cset"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."ceco"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cphs"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cidd"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cide"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cave"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cpar"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cslc"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cida"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cidb"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor"
+                -1
+            }
+            <ParamDouble."cidc"> 
+            {
+                <Comment> "Pass on data to next functor only when the current loop index value is equal to the chosen value. -1 will pass on all data. Only for Image functor not for Scan functor."
+                -1
+            }
+        }
+    }
+
+    <ProtocolComposer."IrisDefaultConfigurator">
+    {
+    <Dll>"IrisConfigurators"
+    }
+
+    <ProtocolComposer."IceDefaultConfigurator">
+    {
+    <Dll>"IceConfigurators"
+    }
+
+    <ProtocolComposer."ExplorerConfigurator">
+    {
+    <Dll>"IceExplorer"
+    }
+    
+}

@@ -1,0 +1,69 @@
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 2005  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
+##
+## Project: IDEA
+##    File: \n4_servers3\pkg\MrServers\MrVista\Ice\IceIdeaFunctors\IceExplorer\makefile.trs
+## Version:
+##  Author: 
+##    Date: 
+##
+##    Lang: make
+##
+## Descrip: Makefile fuer Target IceTemplate
+##
+##-----------------------------------------------------------------------------
+
+##-----------------------------------------------------------------------------
+## Naehere Informationen zum den moeglichen Macros im Makefile siehe
+## MedMake-Dokumentation Q:/csw/MedMake/html/contents_t6.html
+##
+
+##-----------------------------------------------------------------------------
+## enter NLS library
+##
+
+##-----------------------------------------------------------------------------
+## enter local compiler flags
+##
+
+##-----------------------------------------------------------------------------
+## enter include paths
+##
+CPPFLAGS(-DICEIDEAFUNCTORS_EXPORTS)
+
+##-----------------------------------------------------------------------------
+## enter source files
+##
+CPPSOURCES(ExplorerImageFunctor)
+CPPSOURCES(ExplorerScanFunctor)
+CPPSOURCES(ExplorerConfigurator)
+CPPSOURCES(ExplorerObjectMap)
+
+##-----------------------------------------------------------------------------
+## enter local linker flags
+##
+
+##-----------------------------------------------------------------------------
+## enter link libraries
+##
+LDLIBS(IceAlgos)
+LDLIBS(IceBasic)
+LDLIBS(IceUtils)
+LDLIBS(MrParc)
+LDLIBS(UTrace)
+
+# StdExcept
+MSDEV_i586_WinNT400(LDLIBS(MrClassDump))
+
+##-----------------------------------------------------------------------------
+## enter target name
+##
+LIB(IceExplorer)
+EVPTLB(IceExplorer)
+
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 2005  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
+VISTA_GCC_LINUX_AMD64(LDLIBS(ace)) 
+GCC_Linux(LDLIBS(ace))    
