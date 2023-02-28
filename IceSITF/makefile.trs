@@ -1,0 +1,55 @@
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 2005  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
+##
+## Project: NUMARIS/4
+##    File: \n4_servers3\pkg\MrServers\MrVista\Ice\IceIdeaFunctors\IceAFI\makefile.trs
+## Version: \main\2
+##  Author: FM
+##    Date: 2016-03-23 11:05:00 +01:00
+##
+##    Lang: make
+##
+## Descrip: Makefile for target IceAFI
+##
+##-----------------------------------------------------------------------------
+
+
+##-----------------------------------------------------------------------------
+## enter source files
+##
+CPPSOURCES(SITF_ObjectMap)
+CPPSOURCES(SITF_Configurator)
+CPPSOURCES(Functor_SaveImagesToFile_PostProcessing)
+
+#************************************************************************
+# Target specific CPPFLAGS
+#************************************************************************
+CPPFLAGS(-DICEIDEAFUNCTORS_EXPORTS)
+CPPFLAGS(-D_VX_VERSION_VE)
+CPPFLAGS(-DICE_NAMESPACE=IceSITF)
+
+##-----------------------------------------------------------------------------
+## enter link libraries
+##
+LDLIBS(IceAlgos)
+LDLIBS(IceBasic)
+LDLIBS(IceUtils)
+LDLIBS(MrParc)
+LDLIBS(UTrace)
+# StdExcept
+MSDEV_i586_WinNT400(LDLIBS(MrClassDump))
+
+##-----------------------------------------------------------------------------
+## enter target name
+##
+LIB(IceSITF)
+EVPTLB(IceSITF)
+
+
+##-----------------------------------------------------------------------------
+##  Copyright (C) Siemens AG 2005  All Rights Reserved.  Confidential
+##-----------------------------------------------------------------------------
+# LDLIBS_XLINUX += stlport
+VISTA_GCC_LINUX_AMD64(LDLIBS(ace)) 
+GCC_Linux(LDLIBS(ace))     
